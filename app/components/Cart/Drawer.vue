@@ -72,7 +72,7 @@ async function removeCartItem(id: number, name: string) {
 			},
 		}"
 		v-if="isVisible"
-		class="fixed top-0 right-0 outline-hidden w-full sm:w-1/2 lg:w-1/4 z-50 bg-[#f1f4ee] overscroll-none transform duration-500 h-screen"
+		class="fixed top-0 right-0 outline-hidden w-full sm:w-1/2 lg:w-1/4 z-50 bg-[#f1f4ee] dark:bg-background overscroll-none transform duration-500 h-screen"
 	>
 		<div
 			v-if="cartStore.items.length > 0"
@@ -113,7 +113,7 @@ async function removeCartItem(id: number, name: string) {
 				/>
 			</div>
 
-			<div class="py-8 px-10 bg-white">
+			<div class="py-8 px-10 bg-card">
 				<div class="w-full space-y-5">
 					<div class="flex mb-4">
 						<div class="flex flex-1 text-lg text-neutral-500">
