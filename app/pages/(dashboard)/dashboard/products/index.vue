@@ -144,10 +144,10 @@ const remove = async (row: AdminProduct) => {
 						<p class="text-sm font-medium text-gray-600">Варианты (цена / размер / тип)</p>
 						<button type="button" class="text-sm text-primary" @click="addItem">+ вариант</button>
 					</div>
-					<div v-for="(item, idx) in form.items" :key="idx" class="mb-2 flex items-center gap-2">
-						<input v-model.number="item.price" type="number" min="0" placeholder="Цена" class="w-24 rounded-lg border border-gray-200 px-2 py-1" />
-						<input v-model.number="item.size" type="number" placeholder="Размер" class="w-24 rounded-lg border border-gray-200 px-2 py-1" />
-						<input v-model.number="item.pizzaType" type="number" placeholder="Тип" class="w-24 rounded-lg border border-gray-200 px-2 py-1" />
+					<div v-for="(item, idx) in form.items" :key="idx" class="mb-2 flex flex-col sm:flex-row sm:items-center gap-2">
+						<input v-model.number="item.price" type="number" min="0" placeholder="Цена" class="w-full sm:w-24 rounded-lg border border-gray-200 px-2 py-1" />
+						<input v-model.number="item.size" type="number" placeholder="Размер" class="w-full sm:w-24 rounded-lg border border-gray-200 px-2 py-1" />
+						<input v-model.number="item.pizzaType" type="number" placeholder="Тип" class="w-full sm:w-24 rounded-lg border border-gray-200 px-2 py-1" />
 						<button type="button" class="text-gray-400 hover:text-red-500" @click="removeItem(idx)">
 							<Icon name="lucide:x" size="16" />
 						</button>

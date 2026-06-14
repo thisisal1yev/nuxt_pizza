@@ -10,13 +10,13 @@ const links = [
 </script>
 
 <template>
-	<aside class="w-56 shrink-0">
-		<nav class="flex flex-col gap-1">
+	<aside class="w-full lg:w-56 lg:shrink-0">
+		<nav class="flex flex-row overflow-x-auto lg:flex-col gap-1 pb-2 lg:pb-0">
 			<NuxtLink
 				v-for="link in links"
 				:key="link.to"
 				:to="link.to"
-				class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-gray-600 hover:bg-white"
+				class="flex items-center gap-3 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium text-gray-600 hover:bg-white"
 				active-class="bg-white text-primary shadow-sm"
 				exact-active-class="bg-white text-primary shadow-sm"
 			>

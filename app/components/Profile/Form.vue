@@ -55,7 +55,7 @@ const signOut = () => {
 <template>
 	<h3 class="font-bold">{{ `Личные данные | #${user.id}` }}</h3>
 
-	<form class="flex flex-col gap-5 w-96 mt-10" @submit="onSubmit">
+	<form class="flex flex-col gap-5 w-full max-w-96 mt-10" @submit="onSubmit">
 		<FormInput name="email" label="E-Mail" required />
 		<FormInput name="fullName" label="Полное имя" required />
 

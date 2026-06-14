@@ -13,7 +13,7 @@ useSeoMeta({
 			class="border-b-gray-200 container"
 		/>
 
-		<div class="grow h-auto container my-10 flex gap-8">
+		<div class="grow h-auto container my-6 lg:my-10 flex flex-col lg:flex-row gap-4 lg:gap-8">
 			<AdminSidebar />
 			<div class="grow">
 				<slot />

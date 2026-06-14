@@ -54,7 +54,7 @@ const onSubmit = async (productItemId?: number, ingredients?: number[]) => {
 		@handleClickAdd="(currentId:number,ingredientsList:number[]) => onSubmit(currentId, ingredientsList)"
 	/>
 
-	<div v-else class="flex justify-evenly flex-1">
+	<div v-else class="flex flex-col lg:flex-row justify-evenly flex-1">
 		<div class="flex items-center">
 			<img
 				:src="product.imgURL"
@@ -63,7 +63,7 @@ const onSubmit = async (productItemId?: number, ingredients?: number[]) => {
 			/>
 		</div>
 
-		<div class="bg-[#f7f6f5] p-7 w-[450px]">
+		<div class="bg-[#f7f6f5] p-7 w-full lg:w-[450px]">
 			<h3 class="font-extrabold mb-5 leading-10">{{ product.name }}</h3>
 
 			<Button

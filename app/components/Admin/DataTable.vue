@@ -11,10 +11,10 @@ defineProps<{
 		<table class="w-full text-left text-sm">
 			<thead class="border-b border-gray-100 text-gray-500">
 				<tr>
-					<th v-for="c in columns" :key="c.key" class="px-4 py-3 font-medium">
+					<th v-for="c in columns" :key="c.key" class="px-3 py-2 lg:px-4 lg:py-3 font-medium">
 						{{ c.label }}
 					</th>
-					<th class="px-4 py-3 font-medium text-right">Действия</th>
+					<th class="px-3 py-2 lg:px-4 lg:py-3 font-medium text-right">Действия</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -33,12 +33,12 @@ defineProps<{
 					:key="row.id"
 					class="border-b border-gray-50 last:border-0 hover:bg-gray-50"
 				>
-					<td v-for="c in columns" :key="c.key" class="px-4 py-3">
+					<td v-for="c in columns" :key="c.key" class="px-3 py-2 lg:px-4 lg:py-3">
 						<slot :name="`cell-${c.key}`" :row="row">
 							{{ (row as Record<string, unknown>)[c.key] }}
 						</slot>
 					</td>
-					<td class="px-4 py-3 text-right">
+					<td class="px-3 py-2 lg:px-4 lg:py-3 text-right">
 						<slot name="actions" :row="row" />
 					</td>
 				</tr>

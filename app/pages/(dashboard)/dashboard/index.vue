@@ -17,7 +17,7 @@ const cards = computed(() => [
 <template>
 	<div>
 		<h1 class="mb-8 text-3xl font-extrabold">Обзор</h1>
-		<div class="grid grid-cols-2 gap-5 md:grid-cols-3">
+		<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
 			<div
 				v-for="card in cards"
 				:key="card.label"

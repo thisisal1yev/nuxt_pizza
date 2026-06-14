@@ -10,9 +10,9 @@ defineProps<Props>()
 </script>
 
 <template>
-	<div class="flex items-center justify-between w-[840px] gap-12" :class>
+	<div class="flex flex-col lg:flex-row items-center justify-between w-full max-w-[840px] px-4 gap-6" :class>
 		<div class="flex flex-col">
-			<div class="w-[445px] space-y-5">
+			<div class="w-full lg:w-[445px] space-y-5">
 				<h2 class="font-extrabold">{{ title }}</h2>
 
 				<p class="text-gray-400 text-lg">{{ text }}</p>

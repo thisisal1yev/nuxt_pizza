@@ -26,12 +26,12 @@ onMounted(async () => {
 </script>
 
 <template>
-	<div class="container flex items-center justify-between gap-2 my-10">
+	<div class="container flex items-center justify-between gap-2 my-10 overflow-x-auto">
 		<div
 			v-if="stories.length === 0"
 			v-for="i in 6"
 			:key="i"
-			class="w-[200px] h-[250px] bg-gray-200 rounded-xl animate-pulse"
+			class="w-[200px] h-[250px] shrink-0 bg-gray-200 rounded-xl animate-pulse"
 		></div>
 
 		<img
@@ -40,7 +40,7 @@ onMounted(async () => {
 			:key="story.id"
 			:src="story.previewImgURL"
 			@click="() => (onClickStory(story), (open = true))"
-			class="rounded-xl cursor-pointer"
+			class="rounded-xl cursor-pointer shrink-0"
 			width="200"
 			height="250"
 		/>

@@ -70,7 +70,7 @@ const onSubmit = async (
 	<section ref="target" :id="title">
 		<h2 class="font-extrabold mb-5">{{ title }}</h2>
 
-		<div class="grid grid-cols-3 gap-[50px]">
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-[50px]">
 			<ProductCard
 				v-for="product in products"
 				:key="product.id"

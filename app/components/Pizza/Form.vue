@@ -43,10 +43,10 @@ watchEffect(() => {
 </script>
 
 <template>
-	<div class="flex flex-1">
+	<div class="flex flex-col lg:flex-row flex-1">
 		<PizzaImage :imgURL :size :name />
 
-		<div class="w-[490px] bg-[#f7f6f5] p-7">
+		<div class="w-full lg:w-[490px] bg-[#f7f6f5] p-7">
 			<h4 class="font-extrabold mb-5">{{ name }}</h4>
 
 			<p class="text-gray-400">{{ textDetails }}</p>
@@ -68,7 +68,7 @@ watchEffect(() => {
 			<div
 				class="bg-gray-50 p-5 rounded-md h-[420px] overflow-auto scrollbar mt-5"
 			>
-				<div class="grid grid-cols-3 gap-3">
+				<div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
 					<IngredientItem
 						v-for="ingredient in ingredients"
 						:key="ingredient.id"

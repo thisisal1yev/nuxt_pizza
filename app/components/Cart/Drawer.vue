@@ -72,7 +72,7 @@ async function removeCartItem(id: number, name: string) {
 			},
 		}"
 		v-if="isVisible"
-		class="fixed top-0 right-0 outline-hidden w-1/4 z-50 bg-[#f1f4ee] overscroll-none transform duration-500 h-screen"
+		class="fixed top-0 right-0 outline-hidden w-full sm:w-1/2 lg:w-1/4 z-50 bg-[#f1f4ee] overscroll-none transform duration-500 h-screen"
 	>
 		<div
 			v-if="cartStore.items.length > 0"

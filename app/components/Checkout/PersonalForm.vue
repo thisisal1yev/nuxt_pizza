@@ -5,7 +5,7 @@ defineProps<{ class?: string }>()
 <template>
 	<WhiteBlock title="2. Персональные данные" :class>
 		<template #lower>
-			<div class="grid grid-cols-2 gap-5 pt-2 pb-4">
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2 pb-4">
 				<FormInput name="firstName" type="text" label="Имя" required />
 				<FormInput name="lastName" type="text" label="Фамилия" required />
 				<FormInput name="email" type="email" label="E-Mail" required />

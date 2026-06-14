@@ -96,10 +96,10 @@ onMounted(async () => {
 </script>
 
 <template>
-	<h1 class="font-extrabold mb-8 text-[36px] leading-9">Оформление заказа</h1>
+	<h1 class="font-extrabold mb-8 text-2xl lg:text-[36px] leading-9">Оформление заказа</h1>
 
 	<form @submit="onSubmit">
-		<div class="flex gap-10">
+		<div class="flex flex-col xl:flex-row gap-6 xl:gap-10">
 			<div class="flex flex-col gap-10 flex-1 mb-20">
 				<CheckoutCart
 					:items="cartStore.items"
@@ -125,7 +125,7 @@ onMounted(async () => {
 				/>
 			</div>
 
-			<div class="w-[450px]">
+			<div class="w-full xl:w-[450px]">
 				<CheckoutSidebar
 					:loading="cartStore.loading || submitting"
 					:totalAmount="cartStore.totalAmount"

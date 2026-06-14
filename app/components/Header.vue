@@ -40,7 +40,7 @@ onMounted(async () => {
 
 <template>
 	<header class="py-10 border-b-2">
-		<div class="container flex items-center justify-between space-x-10">
+		<div class="container flex items-center justify-between gap-3 lg:gap-10">
 			<NuxtLink class="inline-flex items-center justify-center gap-4" to="/">
 				<img
 					class="w-9 h-9"
@@ -51,7 +51,7 @@ onMounted(async () => {
 				/>
 
 				<div class="flex flex-col">
-					<span class="uppercase font-black text-2xl">Nuxt pizza</span>
+					<span class="uppercase font-black text-lg lg:text-2xl">Nuxt pizza</span>
 
 					<span class="text-sm leading-3 text-gray-400"
 						>вкусней уже некуда</span
@@ -59,7 +59,7 @@ onMounted(async () => {
 				</div>
 			</NuxtLink>
 
-			<div v-if="!hasSearch" class="mx-10 flex-1">
+			<div v-if="!hasSearch" class="mx-3 lg:mx-10 flex-1">
 				<SearchInput />
 			</div>
 
