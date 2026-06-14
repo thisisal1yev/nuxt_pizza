@@ -35,8 +35,6 @@ watch(
 		:categories="categories.filter(category => category.products.length > 0)"
 	/>
 
-	<Stories />
-
 	<div class="container mt-10 pb-14">
 		<div class="flex flex-col lg:flex-row gap-8 lg:gap-[80px]">
 			<div class="w-full lg:w-[250px]">
