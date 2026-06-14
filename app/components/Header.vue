@@ -97,7 +97,7 @@ onMounted(async () => {
             </Teleport>
 
             <!-- Desktop actions -->
-            <div class="hidden lg:flex items-center justify-center space-x-4">
+            <div class="hidden md:flex items-center justify-center space-x-4">
                 <ClientOnly>
                     <button
                         type="button"
@@ -126,7 +126,7 @@ onMounted(async () => {
             </div>
 
             <!-- Mobile hamburger -->
-            <div ref="menuRef" class="relative lg:hidden">
+            <div ref="menuRef" class="relative md:hidden">
                 <button
                     type="button"
                     @click="menuOpen = !menuOpen"
