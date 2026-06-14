@@ -59,7 +59,7 @@ onMounted(async () => {
 				</div>
 			</NuxtLink>
 
-			<div v-if="!hasSearch" class="mx-3 lg:mx-10 flex-1">
+			<div v-if="!hasSearch" class="hidden lg:block lg:flex-1 lg:mx-10">
 				<SearchInput />
 			</div>
 
