@@ -6,16 +6,15 @@ export const getCartItemDetails = (
 	pizzaType: PizzaType,
 	pizzaSize: PizzaSize,
 ): string => {
-	const details = ref<string[]>([])
+	const details: string[] = []
 
 	if (pizzaSize && pizzaType) {
-		const typeName = ref(mapPizzaType[pizzaType])
-		details.value.push(`${typeName.value} ${pizzaSize} см`)
+		details.push(`${mapPizzaType[pizzaType]} ${pizzaSize} см`)
 	}
 
 	if (ingredients) {
-		details.value.push(...ingredients.map(ingredient => ingredient.name))
+		details.push(...ingredients.map(ingredient => ingredient.name))
 	}
 
-	return details.value.join(', ')
+	return details.join(', ')
 }

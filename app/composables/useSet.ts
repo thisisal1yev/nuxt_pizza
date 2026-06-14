@@ -3,8 +3,8 @@ interface ReturnProps<T> {
 	toggle: (value: T) => void
 	add: (value: T) => void
 	remove: (value: T) => void
-	has: (value: T) => void
-	clear: (value: T) => void
+	has: (value: T) => boolean
+	clear: () => void
 }
 
 export function useSet<T>(initialValues: T[] = []): ReturnProps<T> {
