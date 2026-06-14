@@ -51,7 +51,7 @@ onMounted(async () => {
 				/>
 
 				<div class="flex flex-col">
-					<span class="uppercase font-black text-lg lg:text-2xl">Nuxt pizza</span>
+					<span class="uppercase font-black text-lg lg:text-2xl whitespace-nowrap">Nuxt pizza</span>
 
 					<span class="text-sm leading-3 text-gray-400"
 						>вкусней уже некуда</span

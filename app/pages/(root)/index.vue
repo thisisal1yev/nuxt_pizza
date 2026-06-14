@@ -23,6 +23,8 @@ watch(
 	},
 	{ deep: true }
 )
+
+const showFilters = ref(false)
 </script>
 
 <template>
@@ -36,8 +38,26 @@ watch(
 	/>
 
 	<div class="container mt-10 pb-14">
+		<button
+			type="button"
+			class="lg:hidden mb-6 flex items-center gap-2 rounded-2xl bg-gray-50 px-5 py-3 font-bold"
+			@click="showFilters = !showFilters"
+		>
+			<Icon name="lucide:sliders-horizontal" size="18" />
+			Фильтры
+			<Icon
+				:name="showFilters ? 'lucide:chevron-up' : 'lucide:chevron-down'"
+				size="16"
+			/>
+		</button>
+
 		<div class="flex flex-col lg:flex-row gap-8 lg:gap-[80px]">
-			<div class="w-full lg:w-[250px]">
+			<div
+				:class="[
+					'w-full lg:w-[250px]',
+					showFilters ? 'block' : 'hidden lg:block',
+				]"
+			>
 				<Filters />
 			</div>
 
