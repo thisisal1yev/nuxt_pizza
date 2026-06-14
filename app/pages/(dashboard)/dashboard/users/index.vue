@@ -4,27 +4,20 @@ import type { AdminUser } from '~/services/dto/admin.dto'
 
 definePageMeta({ middleware: 'dashboard', layout: 'dashboard-layout' })
 
+const { user } = useUserSession()
 const { data, refresh, pending } = await useAsyncData('admin-users', () => Api.admin.users.list(), { server: false })
-const rows = computed(() => data.value ?? [])
+
+// Hide the currently logged-in admin from the list.
+const rows = computed(() =>
+	(data.value ?? []).filter((u) => Number(u.id) !== Number(user.value?.id))
+)
 
 const columns = [
 	{ key: 'id', label: 'ID' },
 	{ key: 'fullName', label: 'Имя' },
 	{ key: 'email', label: 'E-Mail' },
 	{ key: 'verified', label: 'Подтверждён' },
-	{ key: 'role', label: 'Роль' },
 ]
-
-const setRole = async (row: AdminUser, role: AdminUser['role']) => {
-	const toast = (await import('vue3-toastify')).toast
-	try {
-		await Api.admin.users.setRole(row.id, role)
-		await refresh()
-		toast.success('Роль обновлена')
-	} catch (e: any) {
-		toast.error(e?.response?.data?.message ?? 'Ошибка')
-	}
-}
 
 const remove = async (row: AdminUser) => {
 	if (!confirm(`Удалить «${row.email}»?`)) return
@@ -48,16 +41,6 @@ const remove = async (row: AdminUser) => {
 				<span :class="(row as AdminUser).verified ? 'text-green-600' : 'text-gray-400'">
 					{{ (row as AdminUser).verified ? 'да' : 'нет' }}
 				</span>
-			</template>
-			<template #cell-role="{ row }">
-				<select
-					:value="(row as AdminUser).role"
-					class="rounded-lg border border-gray-200 px-2 py-1 text-sm"
-					@change="setRole(row as AdminUser, ($event.target as HTMLSelectElement).value as AdminUser['role'])"
-				>
-					<option value="USER">USER</option>
-					<option value="ADMIN">ADMIN</option>
-				</select>
 			</template>
 			<template #actions="{ row }">
 				<button class="text-gray-500 hover:text-red-500" @click="remove(row as AdminUser)">
