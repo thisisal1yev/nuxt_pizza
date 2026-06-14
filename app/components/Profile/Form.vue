@@ -53,7 +53,7 @@ const signOut = () => {
 </script>
 
 <template>
-	<div class="max-w-96 mx-auto">
+	<div class="max-w-96 mx-auto md:mx-0">
 		<h3 class="font-bold">{{ `Личные данные | #${user.id}` }}</h3>
 
 		<form class="flex flex-col gap-5 w-full mt-10" @submit="onSubmit">
