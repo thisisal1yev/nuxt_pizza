@@ -5,6 +5,7 @@ export default defineOAuthGoogleEventHandler({
 		// user is the user object returned by Google
 		const dbUser = await findOrCreateOAuthUser({
 			email: user.email,
+			emailVerified: Boolean(user.email_verified ?? user.verified_email),
 			fullName: user.name,
 			provider: 'google',
 			providerId: String(user.sub ?? user.email),
