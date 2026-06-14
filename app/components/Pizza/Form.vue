@@ -66,7 +66,7 @@ watchEffect(() => {
 			</div>
 
 			<div
-				class="bg-gray-50 p-5 rounded-md h-[420px] overflow-auto scrollbar mt-5"
+				class="bg-gray-50 p-5 rounded-md max-h-[420px] overflow-auto scrollbar mt-5"
 			>
 				<div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
 					<IngredientItem

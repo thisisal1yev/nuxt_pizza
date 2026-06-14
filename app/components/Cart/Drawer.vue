@@ -160,7 +160,7 @@ async function removeCartItem(id: number, name: string) {
 
 					<Button
 						@click="$emit('close')"
-						class="w-56 h-12 text-base rounded-xl"
+						class="w-full max-w-xs h-12 text-base rounded-xl"
 						size="lg"
 					>
 						<Icon name="lucide:arrow-left" size="18" class="mr-2" />
