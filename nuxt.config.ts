@@ -24,11 +24,46 @@ export default defineNuxtConfig({
     "@vee-validate/nuxt",
     "nuxt-auth-utils",
     "@nuxt/icon",
+    "@nuxtjs/color-mode",
+    "@vite-pwa/nuxt",
   ],
 
   icon: {
     mode: "svg",
     size: "16",
+  },
+
+  colorMode: {
+    classSuffix: "",
+    preference: "light",
+    fallback: "light",
+    storageKey: "nuxt-pizza-color-mode",
+  },
+
+  pwa: {
+    registerType: "autoUpdate",
+    manifest: {
+      name: "Nuxt Pizza",
+      short_name: "Nuxt Pizza",
+      description: "Nuxt Pizza — вкусней уже некуда",
+      lang: "ru",
+      theme_color: "#ff6900",
+      background_color: "#f4f1ee",
+    },
+    pwaAssets: {
+      preset: "minimal-2023",
+      image: "public/logo.png",
+    },
+    workbox: {
+      navigateFallback: "/",
+      globPatterns: ["**/*.{js,css,html,png,svg,ico,woff2}"],
+    },
+    client: {
+      installPrompt: true,
+    },
+    devOptions: {
+      enabled: false,
+    },
   },
 
   veeValidate: { autoImports: true },
@@ -40,9 +75,7 @@ export default defineNuxtConfig({
   fonts: {
     families: [{ name: "Nunito", provider: "google" }],
     experimental: {
-      // Required for TailwindCSS v4. You can enable support for processing CSS variables for font family names. This may have a performance impact.
       processCSSVariables: true,
-      // Defines whether to enable adding local fallbacks. Default is `false`.
       disableLocalFallbacks: true,
     },
   },

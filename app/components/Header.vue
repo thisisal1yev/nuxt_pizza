@@ -12,6 +12,11 @@ const toggle = () => (isOpen.value = !isOpen.value)
 const router = useRouter()
 const route = useRoute()
 
+const colorMode = useColorMode()
+const toggleTheme = () => {
+	colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+}
+
 onMounted(async () => {
 	const toast = (await import('vue3-toastify')).toast
 	let toastMessage = ''
@@ -67,6 +72,23 @@ onMounted(async () => {
 				<Teleport to="body">
 					<ModalAuth v-if="isOpen" @openOrCloseModal="toggle" />
 				</Teleport>
+
+				<ClientOnly>
+					<button
+						type="button"
+						@click="toggleTheme"
+						aria-label="Сменить тему"
+						class="flex h-10 w-10 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/10"
+					>
+						<Icon
+							:name="colorMode.value === 'dark' ? 'lucide:sun' : 'lucide:moon'"
+							size="20"
+						/>
+					</button>
+					<template #fallback>
+						<div class="h-10 w-10" />
+					</template>
+				</ClientOnly>
 
 				<ProfileButton @onClickSignIn="toggle" />
 

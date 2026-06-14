@@ -40,16 +40,24 @@
   },
   "devDependencies": {
     "@nuxt/icon": "^2.2.3",
+    "@nuxtjs/color-mode": "^4.0.1",
     "@prisma/client": "^7.8.0",
     "@types/bcrypt": "^6.0.0",
     "@types/pg": "^8.11.10",
     "@types/qs": "^6.15.1",
+    "@vite-pwa/assets-generator": "^1.0.2",
+    "@vite-pwa/nuxt": "^1.1.1",
     "dotenv": "^16.4.7",
     "prisma": "^7.8.0",
     "tsx": "^4.22.4",
     "typescript": "^6.0.3"
   },
   "trustedDependencies": [
-    "@parcel/watcher"
+    "@parcel/watcher",
+    "@prisma/engines",
+    "bcrypt",
+    "esbuild",
+    "prisma",
+    "sharp"
   ]
 }
