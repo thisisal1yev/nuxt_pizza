@@ -15,8 +15,8 @@ const { loggedIn } = useUserSession();
         <span>Войти</span>
     </Button>
 
-    <NuxtLink v-else to="/profile" class="w-full">
-        <Button class="flex items-center gap-3" variant="secondary">
+    <NuxtLink v-else to="/profile">
+        <Button class="flex items-center gap-3 w-full" variant="secondary">
             <Icon name="lucide:circle-user-round" size="18" />
 
             <span>Профиль</span>
