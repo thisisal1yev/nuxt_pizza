@@ -35,7 +35,7 @@ export default defineNuxtConfig({
 
   pinia: { storesDirs: ["./store/**"] },
 
-  css: ["./assets/main.css", "vue3-toastify/dist/index.css"],
+  css: ["~/assets/main.css", "vue3-toastify/dist/index.css"],
 
   fonts: {
     families: [{ name: "Nunito", provider: "google" }],
