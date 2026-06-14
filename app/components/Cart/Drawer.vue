@@ -119,7 +119,7 @@ async function removeCartItem(id: number, name: string) {
 						<div class="flex flex-1 text-lg text-neutral-500">
 							Итого
 							<span
-								class="flex-1 border-b border-dashed border-b-neutral-200 relative -top-1 mx-2"
+								class="flex-1 border-b border-dashed border-b-border relative -top-1 mx-2"
 							></span>
 						</div>
 						<b class="text-lg"

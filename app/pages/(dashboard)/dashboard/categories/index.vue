@@ -72,7 +72,7 @@ const remove = async (row: AdminCategory) => {
 				<input
 					v-model.trim="name"
 					placeholder="Название"
-					class="rounded-xl border border-gray-200 px-4 py-2 outline-none"
+					class="rounded-xl border border-border px-4 py-2 outline-none"
 				/>
 				<Button type="submit" :disabled="!name">Сохранить</Button>
 			</form>

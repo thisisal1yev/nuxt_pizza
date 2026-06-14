@@ -50,7 +50,7 @@ const onClickItem = (): void => {
 		/>
 
 		<input
-			class="outline-hidden w-full rounded-2xl! border-none bg-gray-100 pl-11"
+			class="outline-hidden w-full rounded-2xl! border-none bg-gray-100 dark:bg-white/5 pl-11"
 			type="search"
 			v-model.trim="searchQuery"
 			placeholder="Поиск пиццы..."
@@ -60,7 +60,7 @@ const onClickItem = (): void => {
 		<div
 			v-if="products.length > 0"
 			:class="focused ? 'visible opacity-100 top-12' : 'invisible top-14'"
-			class="absolute w-full bg-white rounded-xl py-2 opacity-0 shadow-md transition-all duration-200 z-30"
+			class="absolute w-full bg-card rounded-xl py-2 opacity-0 shadow-md transition-all duration-200 z-30"
 		>
 			<NuxtLink
 				v-for="product in products"
@@ -81,7 +81,7 @@ const onClickItem = (): void => {
 		<div
 			v-else
 			:class="focused ? 'visible opacity-100 top-12' : 'invisible top-14'"
-			class="absolute w-full bg-white rounded-xl py-2 opacity-0 shadow-md transition-all duration-200 z-30"
+			class="absolute w-full bg-card rounded-xl py-2 opacity-0 shadow-md transition-all duration-200 z-30"
 		>
 			<p class="flex items-center gap-3 w-full px-3 py-2 hover:bg-primary/10">
 				Ничего не найдено

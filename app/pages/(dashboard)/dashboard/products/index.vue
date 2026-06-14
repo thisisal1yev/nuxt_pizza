@@ -116,10 +116,10 @@ const remove = async (row: AdminProduct) => {
 			@close="modalOpen = false"
 		>
 			<form class="flex max-h-[70vh] flex-col gap-4 overflow-y-auto" @submit.prevent="save">
-				<input v-model.trim="form.name" placeholder="Название" class="rounded-xl border border-gray-200 px-4 py-2 outline-none" />
-				<input v-model.trim="form.imgURL" placeholder="URL картинки" class="rounded-xl border border-gray-200 px-4 py-2 outline-none" />
+				<input v-model.trim="form.name" placeholder="Название" class="rounded-xl border border-border px-4 py-2 outline-none" />
+				<input v-model.trim="form.imgURL" placeholder="URL картинки" class="rounded-xl border border-border px-4 py-2 outline-none" />
 
-				<select v-model.number="form.categoryId" class="rounded-xl border border-gray-200 px-4 py-2 outline-none">
+				<select v-model.number="form.categoryId" class="rounded-xl border border-border px-4 py-2 outline-none">
 					<option v-for="c in cats ?? []" :key="c.id" :value="c.id">{{ c.name }}</option>
 				</select>
 
@@ -131,7 +131,7 @@ const remove = async (row: AdminProduct) => {
 							:key="ing.id"
 							type="button"
 							class="rounded-full border px-3 py-1 text-sm"
-							:class="form.ingredientIds.includes(ing.id) ? 'border-primary bg-primary/10 text-primary' : 'border-gray-200 text-gray-600'"
+							:class="form.ingredientIds.includes(ing.id) ? 'border-primary bg-primary/10 text-primary' : 'border-border text-gray-600'"
 							@click="toggleIngredient(ing.id)"
 						>
 							{{ ing.name }}
@@ -145,9 +145,9 @@ const remove = async (row: AdminProduct) => {
 						<button type="button" class="text-sm text-primary" @click="addItem">+ вариант</button>
 					</div>
 					<div v-for="(item, idx) in form.items" :key="idx" class="mb-2 flex flex-col sm:flex-row sm:items-center gap-2">
-						<input v-model.number="item.price" type="number" min="0" placeholder="Цена" class="w-full sm:w-24 rounded-lg border border-gray-200 px-2 py-1" />
-						<input v-model.number="item.size" type="number" placeholder="Размер" class="w-full sm:w-24 rounded-lg border border-gray-200 px-2 py-1" />
-						<input v-model.number="item.pizzaType" type="number" placeholder="Тип" class="w-full sm:w-24 rounded-lg border border-gray-200 px-2 py-1" />
+						<input v-model.number="item.price" type="number" min="0" placeholder="Цена" class="w-full sm:w-24 rounded-lg border border-border px-2 py-1" />
+						<input v-model.number="item.size" type="number" placeholder="Размер" class="w-full sm:w-24 rounded-lg border border-border px-2 py-1" />
+						<input v-model.number="item.pizzaType" type="number" placeholder="Тип" class="w-full sm:w-24 rounded-lg border border-border px-2 py-1" />
 						<button type="button" class="text-gray-400 hover:text-red-500" @click="removeItem(idx)">
 							<Icon name="lucide:x" size="16" />
 						</button>

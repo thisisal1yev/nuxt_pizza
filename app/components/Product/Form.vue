@@ -63,7 +63,7 @@ const onSubmit = async (productItemId?: number, ingredients?: number[]) => {
 			/>
 		</div>
 
-		<div class="bg-[#f7f6f5] p-7 w-full lg:w-[450px]">
+		<div class="bg-[#f7f6f5] dark:bg-white/5 p-7 w-full lg:w-[450px]">
 			<h3 class="font-extrabold mb-5 leading-10">{{ product.name }}</h3>
 
 			<Button

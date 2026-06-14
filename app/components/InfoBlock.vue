@@ -30,7 +30,7 @@ defineProps<Props>()
 				<a href="">
 					<Button
 						variant="outline"
-						class="text-gray-500! border-gray-400! hover:bg-gray-50!"
+						class="text-gray-500! border-gray-400! hover:bg-gray-50! dark:hover:bg-white/10!"
 					>
 						Обновить
 					</Button>

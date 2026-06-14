@@ -12,7 +12,7 @@ defineProps<Props>()
 <template>
 	<div
 		:class="[
-			'flex items-center flex-col p-1 rounded-xl w-full text-center relative cursor-pointer shadow-md bg-white',
+			'flex items-center flex-col p-1 rounded-xl w-full text-center relative cursor-pointer shadow-md bg-card',
 			{ 'border border-primary': active },
 		]"
 	>

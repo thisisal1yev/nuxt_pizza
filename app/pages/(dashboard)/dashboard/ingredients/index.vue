@@ -84,9 +84,9 @@ const remove = async (row: AdminIngredient) => {
 			@close="modalOpen = false"
 		>
 			<form class="flex flex-col gap-4" @submit.prevent="save">
-				<input v-model.trim="form.name" placeholder="Название" class="rounded-xl border border-gray-200 px-4 py-2 outline-none" />
-				<input v-model.number="form.price" type="number" min="0" placeholder="Цена" class="rounded-xl border border-gray-200 px-4 py-2 outline-none" />
-				<input v-model.trim="form.imgURL" placeholder="URL картинки" class="rounded-xl border border-gray-200 px-4 py-2 outline-none" />
+				<input v-model.trim="form.name" placeholder="Название" class="rounded-xl border border-border px-4 py-2 outline-none" />
+				<input v-model.number="form.price" type="number" min="0" placeholder="Цена" class="rounded-xl border border-border px-4 py-2 outline-none" />
+				<input v-model.trim="form.imgURL" placeholder="URL картинки" class="rounded-xl border border-border px-4 py-2 outline-none" />
 				<Button type="submit" :disabled="!form.name || !form.imgURL">Сохранить</Button>
 			</form>
 		</AdminModal>

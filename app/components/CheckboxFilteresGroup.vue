@@ -53,7 +53,7 @@ watchEffect(() => {
 				type="search"
 				v-model.trim="searchInput"
 				:placeholder="searchInputPlaceholder ?? 'Поиск...'"
-				class="bg-gray-50 border-none px-5 py-3 w-full outline-hidden rounded-md"
+				class="bg-gray-50 dark:bg-white/5 border-none px-5 py-3 w-full outline-hidden rounded-md"
 			/>
 		</div>
 

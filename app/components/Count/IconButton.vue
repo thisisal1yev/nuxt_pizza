@@ -24,7 +24,7 @@ defineEmits(['onClick'])
 				? 'w-[30px] h-[30px] rounded-[10px]'
 				: 'w-[38px] h-[38px] rounded-md',
 		]"
-		class="p-0 hover:bg-primary hover:text-white disabled:bg-white disabled:border-gray-400 disabled:text-gray-400"
+		class="p-0 hover:bg-primary hover:text-white disabled:bg-card disabled:border-gray-400 disabled:text-gray-400"
 	>
 		<Icon
 			v-if="type === 'minus'"

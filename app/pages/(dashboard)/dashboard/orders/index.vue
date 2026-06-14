@@ -50,7 +50,7 @@ const remove = async (row: AdminOrder) => {
 			<template #cell-status="{ row }">
 				<select
 					:value="(row as AdminOrder).status"
-					class="rounded-lg border border-gray-200 px-2 py-1 text-sm"
+					class="rounded-lg border border-border px-2 py-1 text-sm"
 					@change="setStatus(row as AdminOrder, ($event.target as HTMLSelectElement).value as AdminOrder['status'])"
 				>
 					<option v-for="s in statuses" :key="s" :value="s">{{ s }}</option>

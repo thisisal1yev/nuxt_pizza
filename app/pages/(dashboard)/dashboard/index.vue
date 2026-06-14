@@ -21,7 +21,7 @@ const cards = computed(() => [
 			<div
 				v-for="card in cards"
 				:key="card.label"
-				class="flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm"
+				class="flex items-center gap-4 rounded-2xl bg-card p-5 shadow-sm"
 			>
 				<div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
 					<Icon :name="card.icon" size="22" />

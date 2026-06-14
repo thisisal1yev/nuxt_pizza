@@ -18,7 +18,7 @@ defineProps<Props>()
 			</div>
 
 			<div
-				class="flex-1 border-b border-dashed border-b-neutral-200 relative -top-1 mx-2"
+				class="flex-1 border-b border-dashed border-b-border relative -top-1 mx-2"
 			></div>
 		</span>
 

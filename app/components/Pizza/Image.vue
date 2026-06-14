@@ -24,10 +24,10 @@ const computedImageClass = computed(() => {
 		<img :src="imgURL" :alt="name" :class="computedImageClass" />
 
 		<div
-			class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-dashed border-2 rounded-full border-gray-200 w-[240px] h-[240px] sm:w-[330px] sm:h-[330px] lg:w-[450px] lg:h-[450px] max-w-full"
+			class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-dashed border-2 rounded-full border-border w-[240px] h-[240px] sm:w-[330px] sm:h-[330px] lg:w-[450px] lg:h-[450px] max-w-full"
 		/>
 		<div
-			class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-dotted border-2 rounded-full border-gray-100 w-[200px] h-[200px] sm:w-[270px] sm:h-[270px] lg:w-[370px] lg:h-[370px] max-w-full"
+			class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-dotted border-2 rounded-full border-border w-[200px] h-[200px] sm:w-[270px] sm:h-[270px] lg:w-[370px] lg:h-[370px] max-w-full"
 		/>
 	</div>
 </template>

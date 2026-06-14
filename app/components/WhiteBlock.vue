@@ -9,8 +9,8 @@ defineProps<Props>()
 </script>
 
 <template>
-	<div class="bg-white rounded-3xl" :class>
-		<div class="flex items-center justify-between p-5 border-b border-gray-100">
+	<div class="bg-card rounded-3xl" :class>
+		<div class="flex items-center justify-between p-5 border-b border-border">
 			<h4 v-if="title" class="font-bold">{{ title }}</h4>
 
 			<slot name="upper" />

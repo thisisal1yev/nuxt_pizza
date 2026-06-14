@@ -6,11 +6,11 @@ useSeoMeta({
 </script>
 
 <template>
-	<main class="flex flex-col w-full min-h-screen bg-[#f4f1ee]">
+	<main class="flex flex-col w-full min-h-screen bg-[#f4f1ee] dark:bg-background">
 		<Header
 			:hasSearch="true"
 			:hasCart="true"
-			class="border-b-gray-200 container"
+			class="border-b-border container"
 		/>
 
 		<div class="grow h-auto container mt-5">

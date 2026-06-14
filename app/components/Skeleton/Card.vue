@@ -8,7 +8,7 @@ defineProps<Props>()
 <template>
 	<div :class class="h-full flex flex-col space-y-5">
 		<div
-			class="flex justify-center p-6 bg-gray-100/70 animate-pulse rounded-lg h-[260px]"
+			class="flex justify-center p-6 bg-gray-100/70 dark:bg-white/5 animate-pulse rounded-lg h-[260px]"
 		>
 			<span
 				class="w-[215px] h-[215px] inline-block bg-gray-200 rounded-full animate-pulse"

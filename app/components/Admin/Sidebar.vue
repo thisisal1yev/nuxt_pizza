@@ -16,9 +16,9 @@ const links = [
 				v-for="link in links"
 				:key="link.to"
 				:to="link.to"
-				class="flex items-center gap-3 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium text-gray-600 hover:bg-white"
-				active-class="bg-white text-primary shadow-sm"
-				exact-active-class="bg-white text-primary shadow-sm"
+				class="flex items-center gap-3 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium text-gray-600 hover:bg-card"
+				active-class="bg-card text-primary shadow-sm"
+				exact-active-class="bg-card text-primary shadow-sm"
 			>
 				<Icon :name="link.icon" size="18" />
 				{{ link.label }}

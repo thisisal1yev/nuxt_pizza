@@ -16,7 +16,7 @@ defineEmits(['onClickCountButton', 'onClickRemove'])
 
 <template>
 	<div
-		class="flex w-full bg-white gap-6 py-3 px-5"
+		class="flex w-full bg-card gap-6 py-3 px-5"
 		:class="disabled ? 'opacity-50 pointer-events-none select-none' : ''"
 	>
 		<CartItemDetailsImage :src="imgURL" />

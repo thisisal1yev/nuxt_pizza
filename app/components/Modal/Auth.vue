@@ -34,7 +34,7 @@ defineEmits(['openOrCloseModal'])
 			},
 			scale: 0,
 		}"
-		class="z-50 mt-20 w-[calc(100%-2rem)] max-w-xl max-h-[90vh] overflow-y-auto bg-white rounded-lg shadow-lg p-6 space-y-5 fixed top-0 -translate-x-2/4 left-2/4"
+		class="z-50 mt-20 w-[calc(100%-2rem)] max-w-xl max-h-[90vh] overflow-y-auto bg-card rounded-lg shadow-lg p-6 space-y-5 fixed top-0 -translate-x-2/4 left-2/4"
 		open
 	>
 		<div class="relative">

@@ -7,9 +7,9 @@ defineProps<{
 </script>
 
 <template>
-	<div class="overflow-x-auto rounded-xl bg-white shadow-sm">
+	<div class="overflow-x-auto rounded-xl bg-card shadow-sm">
 		<table class="w-full text-left text-sm">
-			<thead class="border-b border-gray-100 text-gray-500">
+			<thead class="border-b border-border text-gray-500">
 				<tr>
 					<th v-for="c in columns" :key="c.key" class="px-3 py-2 lg:px-4 lg:py-3 font-medium">
 						{{ c.label }}
@@ -31,7 +31,7 @@ defineProps<{
 				<tr
 					v-for="row in rows"
 					:key="row.id"
-					class="border-b border-gray-50 last:border-0 hover:bg-gray-50"
+					class="border-b border-border last:border-0 hover:bg-gray-50 dark:hover:bg-white/10"
 				>
 					<td v-for="c in columns" :key="c.key" class="px-3 py-2 lg:px-4 lg:py-3">
 						<slot :name="`cell-${c.key}`" :row="row">
