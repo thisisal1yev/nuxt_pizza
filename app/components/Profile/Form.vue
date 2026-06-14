@@ -3,6 +3,7 @@ import type { User } from '@prisma/client'
 import { profileFormSchema, type TFormProfileValues } from '../Form/schema'
 
 const { user } = defineProps<{ user: User }>()
+const isAdmin = computed(() => user.role === 'ADMIN')
 const { clear } = useUserSession()
 const { handleSubmit, isSubmitting } = useForm({
 	validationSchema: profileFormSchema,
@@ -55,6 +56,30 @@ const signOut = () => {
 <template>
 	<div class="max-w-96 mx-auto md:mx-0">
 		<h3 class="font-bold">{{ `Личные данные | #${user.id}` }}</h3>
+
+		<div class="mt-4 flex flex-col gap-3">
+			<div class="flex items-center gap-2 text-sm">
+				<span class="text-gray-500">Статус:</span>
+				<span
+					:class="user.verified ? 'text-green-600' : 'text-amber-600'"
+					class="font-bold"
+				>
+					{{ user.verified ? 'Почта подтверждена' : 'Почта не подтверждена' }}
+				</span>
+			</div>
+
+			<NuxtLink
+				v-if="isAdmin"
+				to="/dashboard"
+				class="flex items-center justify-between rounded-2xl bg-primary/10 px-5 py-4 font-bold text-primary transition-colors hover:bg-primary/15"
+			>
+				<span class="flex items-center gap-2">
+					<Icon name="lucide:layout-dashboard" size="20" />
+					Панель управления
+				</span>
+				<Icon name="lucide:arrow-right" size="18" />
+			</NuxtLink>
+		</div>
 
 		<form class="flex flex-col gap-5 w-full mt-10" @submit="onSubmit">
 		<FormInput name="email" label="E-Mail" required />
