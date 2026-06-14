@@ -16,6 +16,7 @@ export default defineEventHandler(async (event) => {
 		const cartItem = await prisma.cartItem.findFirst({
 			where: {
 				id,
+				cart: { token },
 			},
 		})
 

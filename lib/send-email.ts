@@ -2,7 +2,7 @@ import { Resend } from 'resend'
 import { createSSRApp, h } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 
-import payOrder from '~/components/EmailTemplates/payOrder'
+import payOrder from '~/components/EmailTemplates/PayOrder'
 import verificationUser from '~/components/EmailTemplates/verificationUser'
 
 interface Props {
@@ -10,6 +10,7 @@ interface Props {
 	totalAmount?: number
 	paymentURL?: string
 	code?: string
+	link?: string
 }
 
 export const sendEmail = async (

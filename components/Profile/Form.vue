@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import type { User } from '@prisma/client'
-import { regisFormSchema, type TFormRegisterValues } from '../Form/schema'
+import { profileFormSchema, type TFormProfileValues } from '../Form/schema'
 
 const { user } = defineProps<{ user: User }>()
 const { clear } = useUserSession()
 const { handleSubmit, isSubmitting } = useForm({
-	validationSchema: regisFormSchema,
+	validationSchema: profileFormSchema,
 	initialValues: {
 		fullName: user.fullName,
 		email: user.email,
@@ -14,7 +14,7 @@ const { handleSubmit, isSubmitting } = useForm({
 	},
 })
 
-const onSubmit = handleSubmit(async (data: TFormRegisterValues) => {
+const onSubmit = handleSubmit(async (data: TFormProfileValues) => {
 	try {
 		const toast = (await import('vue3-toastify')).toast
 
@@ -59,12 +59,11 @@ const signOut = () => {
 		<FormInput name="email" label="E-Mail" required />
 		<FormInput name="fullName" label="Полное имя" required />
 
-		<FormInput type="password" name="password" label="Новый пароль" required />
+		<FormInput type="password" name="password" label="Новый пароль" />
 		<FormInput
 			type="password"
 			name="confirmPassword"
 			label="Повторите пароль"
-			required
 		/>
 
 		<Button :disabled="isSubmitting" class="text-base mt-10" type="submit">

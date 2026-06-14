@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
 		const { user } = await getUserSession(event)
 
 		if (!user) {
-			return createError({
+			throw createError({
 				statusCode: 401,
 				message: 'Вы не авторизованы'
 			})
@@ -24,10 +24,7 @@ export default defineEventHandler(async (event) => {
 
 		return data
 	} catch (e) {
-		console.error(e)
-		return createError({
-			statusCode: 500,
-			message: '[USER_GET] Server error'
-		})
+		console.error('[USER_GET] Server error', e)
+		throw e
 	}
 })

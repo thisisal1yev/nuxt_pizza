@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-type Providers = 'github' | 'google' | 'gitlab'
+type Providers = 'google'
 
 const regis = (provider: Providers) => {
 	location.href = `/api/auth/${provider}`
@@ -56,29 +56,6 @@ defineEmits(['openOrCloseModal'])
 		<hr />
 
 		<div class="flex flex-col gap-5">
-			<div class="flex gap-5">
-				<Button
-					variant="secondary"
-					@click="regis('github')"
-					type="button"
-					class="gap-2 h-12 p-2 flex-1"
-				>
-					<Icon name="logos:github-icon" />
-
-					GitHub
-				</Button>
-
-				<Button
-					variant="secondary"
-					@click="regis('gitlab')"
-					type="button"
-					class="gap-2 h-12 p-2 flex-1"
-				>
-					<Icon name="logos:gitlab" />
-
-					GitLab
-				</Button>
-			</div>
 			<Button
 				variant="secondary"
 				@click="regis('google')"

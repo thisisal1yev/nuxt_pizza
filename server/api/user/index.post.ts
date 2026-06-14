@@ -17,13 +17,13 @@ export default defineEventHandler(async (event) => {
 
 		if (user) {
 			if (!user.verified) {
-				return createError({
+				throw createError({
 					statusCode: 401,
 					message: "Почта не подтверждена",
 				})
 			}
 
-			return createError({
+			throw createError({
 				statusCode: 401,
 				message: "Пользователь существует",
 			})
@@ -46,12 +46,15 @@ export default defineEventHandler(async (event) => {
 			},
 		})
 
-		setUserSession(event, { user: createdUser })
+		const { password, ...safeUser } = createdUser
+		await setUserSession(event, { user: safeUser })
+
+		const config = useRuntimeConfig()
 
 		return await sendEmail(
 			createdUser.email,
 			`Nuxt Pizza / Подтверждения регистрации`,
-			{ code },
+			{ code, link: `${config.public.siteUrl}/api/auth/verify?code=${code}` },
 			true
 		)
 	} catch (e) {

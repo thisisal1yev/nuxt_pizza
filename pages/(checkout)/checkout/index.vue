@@ -79,19 +79,18 @@ const onSubmit = handleSubmit(async (values: CheckoutFormValues) => {
 })
 
 onMounted(async () => {
-	async function fetchUserInfo() {
+	if (!user.value) return
+
+	try {
 		const data = await Api.auth.getMe()
-		const [firstName, lastName] = data
-			? data.fullName.split(' ')
-			: user.value.fullName.split(' ')
+		const source = data ?? user.value
+		const [firstName = '', lastName = ''] = (source.fullName ?? '').split(' ')
 
 		setFieldValue('firstName', firstName)
 		setFieldValue('lastName', lastName)
-		setFieldValue('email', data.email || user.value.email)
-	}
-
-	if (user) {
-		await fetchUserInfo()
+		setFieldValue('email', data?.email ?? user.value.email)
+	} catch (e) {
+		console.error('fetchUserInfo failed:', e)
 	}
 })
 </script>

@@ -3,10 +3,11 @@ import prisma from '~/lib/prisma'
 export default defineEventHandler(async (event) => {
 	try {
 		const code = getQuery(event).code as string
-		const url = new URL('/?verified', "http://localhost:3000")
+		const config = useRuntimeConfig()
+		const url = new URL('/?verified', config.public.siteUrl)
 
 		if (!code) {
-			return createError({
+			throw createError({
 				statusCode: 400,
 				message: "Неверный код"
 			})
@@ -19,7 +20,7 @@ export default defineEventHandler(async (event) => {
 		})
 
 		if (!verificationCode) {
-			return createError({
+			throw createError({
 				statusCode: 400,
 				message: "Неверный код"
 			})
@@ -43,5 +44,6 @@ export default defineEventHandler(async (event) => {
 		return sendRedirect(event, url.toString())
 	} catch (e) {
 		console.error('[VERIFY_GET] Server error', e)
+		throw e
 	}
 })

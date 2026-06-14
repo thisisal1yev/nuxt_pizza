@@ -48,33 +48,37 @@ export default defineEventHandler(async (event) => {
 			})
 		}
 
-		const order = await prisma.order.create({
-			data: {
-				token,
-				fullName: data.firstName + ' ' + data.lastName,
-				email: data.email,
-				phone: data.phone,
-				address: data.address,
-				comment: data.comment,
-				totalAmount: userCart.totalAmount,
-				status: OrderStatus.PENDING,
-				items: JSON.stringify(userCart.items),
-			},
-		})
+		const order = await prisma.$transaction(async (tx) => {
+			const createdOrder = await tx.order.create({
+				data: {
+					token,
+					fullName: data.firstName + ' ' + data.lastName,
+					email: data.email,
+					phone: data.phone,
+					address: data.address,
+					comment: data.comment,
+					totalAmount: userCart.totalAmount,
+					status: OrderStatus.PENDING,
+					items: JSON.parse(JSON.stringify(userCart.items)),
+				},
+			})
 
-		await prisma.cart.update({
-			where: {
-				id: userCart.id,
-			},
-			data: {
-				totalAmount: 0,
-			},
-		})
+			await tx.cart.update({
+				where: {
+					id: userCart.id,
+				},
+				data: {
+					totalAmount: 0,
+				},
+			})
 
-		await prisma.cartItem.deleteMany({
-			where: {
-				cartId: userCart.id,
-			},
+			await tx.cartItem.deleteMany({
+				where: {
+					cartId: userCart.id,
+				},
+			})
+
+			return createdOrder
 		})
 
 		const paymentURL = 'https://github.com/thisisal1ev'
@@ -92,6 +96,7 @@ export default defineEventHandler(async (event) => {
 
 		return paymentURL
 	} catch (e) {
-		console.log('[CreateOrder] Server error', e)
+		console.error('[CreateOrder] Server error', e)
+		throw e
 	}
 })

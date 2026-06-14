@@ -15,16 +15,26 @@ export default defineEventHandler(async (event) => {
 
 		const data = await readBody<CreateCartItemValues>(event)
 
-		const findCartItem = await prisma.cartItem.findFirst({
+		// Exact ingredient-set match: `every` alone also matches empty/superset sets,
+		// so compare the sorted ingredient ids in JS instead.
+		const wantedIds = [...(data.ingredients ?? [])].sort((a, b) => a - b)
+
+		const candidates = await prisma.cartItem.findMany({
 			where: {
 				cartId: userCart.id,
 				productItemId: data.productItemId,
-				ingredients: {
-					every: {
-						id: { in: data.ingredients },
-					},
-				},
 			},
+			include: {
+				ingredients: { select: { id: true } },
+			},
+		})
+
+		const findCartItem = candidates.find((item) => {
+			const ids = item.ingredients.map((i) => i.id).sort((a, b) => a - b)
+			return (
+				ids.length === wantedIds.length &&
+				ids.every((id, i) => id === wantedIds[i])
+			)
 		})
 
 		if (findCartItem) {

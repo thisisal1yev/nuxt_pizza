@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
 	})
 
 	if (!findUser) {
-		return createError({
+		throw createError({
 			statusCode: 401,
 			message: "Имя пользователя или пароль введены не верно",
 		})
@@ -22,7 +22,7 @@ export default defineEventHandler(async (event) => {
 	const comparePasswords = await compare(body.password, findUser.password)
 
 	if (!comparePasswords) {
-		return createError({
+		throw createError({
 			statusCode: 401,
 			message: "Имя пользователя или пароль введены не верно",
 		})

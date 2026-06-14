@@ -6,6 +6,7 @@ export default defineEventHandler(async (event) => {
 		const id = Number(event.context.params?.id)
 		const body = await readBody(event)
 		const token = getCookie(event, 'cartToken')
+		const quantity = Number(body.quantity)
 
 		if (!token) {
 			return {
@@ -14,8 +15,15 @@ export default defineEventHandler(async (event) => {
 			}
 		}
 
+		if (!Number.isInteger(quantity) || quantity < 1) {
+			return {
+				message: 'Invalid quantity',
+				status: 400,
+			}
+		}
+
 		const cartItem = await prisma.cartItem.findFirst({
-			where: { id },
+			where: { id, cart: { token } },
 		})
 
 		if (!cartItem) {
@@ -27,7 +35,7 @@ export default defineEventHandler(async (event) => {
 
 		await prisma.cartItem.update({
 			where: { id },
-			data: { quantity: body.quantity },
+			data: { quantity },
 		})
 
 		const updatedUserCart = await updateCartTotalAmount(token)
