@@ -7,6 +7,7 @@ export default defineEventHandler(async (event) => {
 	try {
 		const data = await readBody<CheckoutFormValues>(event)
 		const token = getCookie(event, 'cartToken')
+		const { user } = await getUserSession(event)
 
 		if (!token) {
 			throw createError({
@@ -52,6 +53,7 @@ export default defineEventHandler(async (event) => {
 			const createdOrder = await tx.order.create({
 				data: {
 					token,
+					userId: user ? Number(user.id) : undefined,
 					fullName: data.firstName + ' ' + data.lastName,
 					email: data.email,
 					phone: data.phone,

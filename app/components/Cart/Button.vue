@@ -28,7 +28,8 @@ function toggle() {
 
             <span>&#8381;</span>
         </div>
-        <span class="h-full w-px bg-white/30 mx-3"></span>
+
+        <span class="h-full text-white/30 mx-1.5">|</span>
 
         <div
             class="flex items-center gap-1 transition duration-300 group-hover:opacity-0"

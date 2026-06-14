@@ -13,8 +13,11 @@ useSeoMeta({
 			class="border-b-border container"
 		/>
 
-		<div class="grow h-auto container my-10">
-			<slot />
+		<div class="grow h-auto container my-6 lg:my-10 flex flex-col lg:flex-row gap-4 lg:gap-8">
+			<ProfileSidebar />
+			<div class="grow">
+				<slot />
+			</div>
 		</div>
 	</main>
 </template>
