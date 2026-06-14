@@ -37,7 +37,6 @@ export interface AdminUser {
 	id: number
 	fullName: string
 	email: string
-	role: 'USER' | 'ADMIN'
 	verified: string | null
 	createdAt: string
 }

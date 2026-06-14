@@ -29,10 +29,6 @@ export const orderStatusInput = z.object({
 	status: z.enum(['PENDING', 'SUCCEEDED', 'CANCELLED']),
 })
 
-export const userRoleInput = z.object({
-	role: z.enum(['USER', 'ADMIN']),
-})
-
 /** Parse a request body or throw 400 with the first Zod message. */
 export async function readAdminBody<T>(event: H3Event, schema: z.ZodType<T>): Promise<T> {
 	const body = await readBody(event)

@@ -44,6 +44,5 @@ export const products = {
 
 export const users = {
 	list: () => get<AdminUser[]>('/admin/users'),
-	setRole: (id: number, role: AdminUser['role']) => axiosInstance.patch(`/admin/users/${id}`, { role }).then(r => r.data),
 	remove: (id: number) => axiosInstance.delete(`/admin/users/${id}`).then(r => r.data),
 }
